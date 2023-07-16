@@ -22,6 +22,6 @@ module.exports = {
       'warn',
       { allowConstantExport: true },
     ],
-    '@typescript-eslint/no-non-null-assertion': 'off',
-  },
+    '@typescript-eslint/no-non-null-assertion': 'off'
+    },
 }

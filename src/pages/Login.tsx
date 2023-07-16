@@ -1,6 +1,8 @@
 import React from 'react';
 import { SubmitHandler, useForm } from "react-hook-form";
 import { Link } from 'react-router-dom';
+import { googleLogin, loginUser } from '../redux/features/user/userSlice';
+import { useAppDispatch } from '../redux/hooks';
 
 type ILogin = {
   email: string;
@@ -9,11 +11,15 @@ type ILogin = {
 
 const Login = () => {
   const { handleSubmit, register } = useForm<ILogin>();
+  const dispatch = useAppDispatch()
 
+  const handleGoogleLogin =()=>{
+    dispatch(googleLogin())
+  }
 
   const formSubmit: SubmitHandler<ILogin>= (data) => {
     console.log('hello',data)
-    
+  dispatch(loginUser({email: data.email, password: data.password})) 
 }
 
   return (
@@ -86,6 +92,7 @@ const Login = () => {
       </div>
       <div className='flex justify-center' >
             <button
+              onClick={handleGoogleLogin}
               className="flex w-48 justify-center rounded-md bg-emerald-900 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
               type="submit"
             >

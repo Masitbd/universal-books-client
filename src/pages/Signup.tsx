@@ -1,19 +1,21 @@
 import React from 'react';
 import { SubmitHandler, useForm } from "react-hook-form";
 import { Link } from 'react-router-dom';
+import { createUser } from '../redux/features/user/userSlice';
+import { useAppDispatch } from '../redux/hooks';
 
-type ILogin = {
+interface SignupFormInputs {
   email: string;
   password: string;
-};
+}
 
 const Signup = () => {
-  const { handleSubmit, register } = useForm<ILogin>();
+  const { handleSubmit, register } = useForm<SignupFormInputs>();
+  const dispatch = useAppDispatch()
 
-
-  const formSubmit: SubmitHandler<ILogin>= (data) => {
+  const formSubmit: SubmitHandler<SignupFormInputs>= (data) => {
     console.log('hello',data)
-    
+    dispatch(createUser({email:data.email, password:data.password}))
 }
 
   return (
@@ -30,7 +32,7 @@ const Signup = () => {
       </div>
 
       <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-      <form className="space-y-6" onSubmit={handleSubmit(formSubmit) as React.FormEventHandler<HTMLFormElement>}>
+      <form className="space-y-6" onSubmit={handleSubmit(formSubmit)}>
            <div>
             <label htmlFor="email" className="block text-left text-sm font-medium leading-6 text-gray-900">
               Email address

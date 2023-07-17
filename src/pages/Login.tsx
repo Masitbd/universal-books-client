@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { SubmitHandler, useForm } from "react-hook-form";
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { googleLogin, loginUser } from '../redux/features/user/userSlice';
-import { useAppDispatch } from '../redux/hooks';
+import { useAppDispatch, useAppSelector } from '../redux/hooks';
 
 type ILogin = {
   email: string;
@@ -12,6 +12,9 @@ type ILogin = {
 const Login = () => {
   const { handleSubmit, register } = useForm<ILogin>();
   const dispatch = useAppDispatch()
+  const {user, isLoading} = useAppSelector(state => state.user)
+  const navigate = useNavigate()
+
 
   const handleGoogleLogin =()=>{
     dispatch(googleLogin())
@@ -21,6 +24,12 @@ const Login = () => {
     console.log('hello',data)
   dispatch(loginUser({email: data.email, password: data.password})) 
 }
+
+useEffect(()=>{
+if(user.email && !isLoading){
+  navigate('/')
+}
+}, [user.email, isLoading])
 
   return (
     <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
@@ -36,7 +45,7 @@ const Login = () => {
       </div>
 
       <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-      <form className="space-y-6" onSubmit={handleSubmit(formSubmit) as React.FormEventHandler<HTMLFormElement>}>
+      <form className="space-y-6" onSubmit={handleSubmit(formSubmit)}>
            <div>
             <label htmlFor="email" className="block text-left text-sm font-medium leading-6 text-gray-900">
               Email address

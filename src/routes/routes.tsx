@@ -1,7 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
 import App from "../App";
+import BookList from "../components/ui/BookList";
 import Books from "../pages/Books";
-import Home from "../pages/Home";
 import Login from "../pages/Login";
 import NotFound from "../pages/NotFound";
 import Signup from "../pages/Signup";
@@ -14,7 +14,7 @@ const routes = createBrowserRouter([
         children: [
         {
             index: true,
-            element: <Home />,
+            element: <BookList />,
         },
      {
         path: '/books',

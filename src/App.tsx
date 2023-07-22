@@ -4,6 +4,7 @@ import { onAuthStateChanged } from "firebase/auth";
 import { auth } from './lib/firebase';
 import { useAppDispatch } from './redux/hooks';
 import { setUser } from './redux/features/user/userSlice';
+import { Toaster } from "react-hot-toast";
 
 function App() {
 const dispatch = useAppDispatch()
@@ -17,6 +18,7 @@ const dispatch = useAppDispatch()
  return (
     <>
      <MainLayout />
+     <Toaster/>
     </>
   )
 }

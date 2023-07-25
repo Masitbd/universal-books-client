@@ -5,6 +5,7 @@ import { auth } from './lib/firebase';
 import { useAppDispatch } from './redux/hooks';
 import { setUser } from './redux/features/user/userSlice';
 import { Toaster } from "react-hot-toast";
+import "./App.css";
 
 function App() {
 const dispatch = useAppDispatch()

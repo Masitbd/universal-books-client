@@ -7,12 +7,12 @@ const bookApi = api
   })
   .injectEndpoints({
     endpoints: (builder) => ({
-      getAllBooks: builder.query<IBook[], void>({
+      getAllBooks: builder.query({
         query: () => "/books",
         providesTags: ["Books"],
       }),
       postBooks: builder.mutation({
-        query: (data) => ({
+        query: (data: IBook) => ({
           url: "/book",
           method: "POST",
           body: data,

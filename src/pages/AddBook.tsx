@@ -1,10 +1,38 @@
-import { useForm } from "react-hook-form"
+import { useForm } from "react-hook-form";
 import { usePostBooksMutation } from "../redux/features/books/bookApi";
+import PreviousBtn from "../components/reuseable/previousBtn";
+import { useAppSelector } from "../redux/hooks";
+import { IBook } from "../types/interface";
+import toast from "react-hot-toast";
+import { useEffect } from "react";
 
-const AddBook = () => {
-    const [AddBook, {isSuccess, isError}] = usePostBooksMutation()
-    return (
-        <div className="page_main">
+
+export default function AddBook() {
+  const [addBook, { isSuccess, isError /* isLoading */ }] =
+    usePostBooksMutation();
+  const { user } = useAppSelector((state) => state.user);
+
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    reset,
+  } = useForm<IBook>();
+
+  const onSubmit =(data: IBook) => {
+    const payload = { ...data, addedBy: user.email };
+   addBook(payload);
+    reset();
+  };
+
+  useEffect(() => {
+    if (isSuccess)
+      toast.success("Successfully added the book 📘", { id: "addBook" });
+    if (isError) toast.error("Failed to add the book 😔", { id: "error" });
+  }, [isSuccess, isError]);
+
+  return (
+    <div className="page_main">
       <h2 className="section_title">Add New Book</h2>
       <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-200 mx-auto">
         <form className="card-body" onSubmit={handleSubmit(onSubmit)}>
@@ -80,7 +108,5 @@ const AddBook = () => {
       </div>
       <PreviousBtn />
     </div>
-    );
-};
-
-export default AddBook;
+  );
+}

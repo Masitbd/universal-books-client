@@ -3,6 +3,7 @@ import App from "../App";
 import BookList from "../components/ui/BookList";
 import AddBook from "../pages/AddBook";
 import AllBooks from "../pages/AllBooks";
+import BookDetails from "../pages/BookDetails";
 import Books from "../pages/Books";
 import Login from "../pages/Login";
 import NotFound from "../pages/NotFound";
@@ -23,10 +24,16 @@ const routes = createBrowserRouter([
         path: '/books',
         element: <Books/>
      },
+    
      {
       path: '/all-books',
       element: <AllBooks/>
    },
+   {
+    path: '/book-details/:id',
+    element: <BookDetails/>
+ },
+ 
    {
     path: "/add-book",
     element: (

@@ -6,3 +6,8 @@ export type IBook = {
   publicationDate: string;
   addedBy: string | null;
 };
+
+export interface IReview {
+  userEmail: string;
+  review: string;
+}

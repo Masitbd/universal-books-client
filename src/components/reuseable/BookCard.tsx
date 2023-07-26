@@ -5,7 +5,7 @@ import { IBook } from '../../types/interface';
 
 const BookCard = ({book}:{book:IBook}) => {
     const navigate = useNavigate()
-    console.log('hi',book)
+   
     return (
     <div className="card w-80 bg-base-200 shadow-xl hover:-translate-y-2 transition-transform">
    <figure>

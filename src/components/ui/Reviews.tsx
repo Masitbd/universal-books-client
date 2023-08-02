@@ -6,6 +6,7 @@ import { useGetReviewsQuery, usePostReviewMutation } from '../../redux/features/
 import { useAppSelector } from '../../redux/hooks';
 import { IReview } from '../../types/interface';
 import PreviousBtn from '../reuseable/previousBtn';
+import Review from './Review';
 
 
 type ReviewsProp={

@@ -6,7 +6,7 @@ export default function PreviousBtn() {
   return (
     <div
       onClick={() => navigate(-1)}
-      className="w-32 py-2 rounded-md flex gap-2 justify-center items-center mt-8 bg-slate-800 cursor-pointer shadow-md"
+      className="w-32 py-2 rounded-md flex gap-2 justify-center items-center mt-8 bg-slate-200 cursor-pointer shadow-md"
     >
       <AiFillLeftCircle /> Go Back
     </div>

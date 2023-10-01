@@ -36,7 +36,7 @@ const {data: reviewsData} = useGetReviewsQuery(id)
      useEffect(() => {
         if (isSuccess)
           toast.success("Your reivew is posted Successfully!", { id: "addBook" });
-        if (isError) toast.error("Failed to post your review 😔", { id: "error" });
+        if (isError) toast.error("Failed to post your review ", { id: "error" });
       }, [isSuccess, isError]);
     
 

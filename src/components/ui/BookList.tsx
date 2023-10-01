@@ -1,4 +1,3 @@
-import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useGetAllBooksQuery } from '../../redux/features/books/bookApi';
 import { IBook } from '../../types/interface';
@@ -12,7 +11,7 @@ const BookList = () => {
     const navigate = useNavigate()
     if (isLoading) return <Loading />;
     return (
-        <div className='section'>
+        <div className='section mt-5'>
             <h2 className='section_title '>Recent Books</h2>
             <div className="flex flex-wrap gap-5 items-center justify-center">
             {data?.data?.slice(0, 10)?.map((book: IBook) => (

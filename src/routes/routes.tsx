@@ -8,7 +8,9 @@ import Books from "../pages/Books";
 import Home from "../pages/Home";
 import Login from "../pages/Login";
 import NotFound from "../pages/NotFound";
+import ReadlingList from "../pages/ReadingList";
 import Signup from "../pages/Signup";
+import UpdateBook from "../pages/UpdateBook";
 import PrivateRoute from "./PrivateRoute";
 
 const routes = createBrowserRouter([
@@ -43,6 +45,18 @@ const routes = createBrowserRouter([
         <AddBook />
       </PrivateRoute>
     ),
+  },
+  {
+    path: "/reading-list/:email",
+    element: (
+      <PrivateRoute>
+        <ReadlingList />
+      </PrivateRoute>
+    ),
+  },
+  {
+    path: "/update-book/:id",
+    element: <UpdateBook />,
   },
     ]
     },

@@ -3,7 +3,7 @@ import { FaDeleteLeft, FaPencil } from 'react-icons/fa6';
 import { useNavigate, useParams } from 'react-router-dom';
 import DeleteModal from '../components/ui/DeleteModal';
 import Reviews from '../components/ui/Reviews';
-import { useGetSingleBookQuery } from '../redux/features/books/bookApi';
+import { useGetBookQuery } from '../redux/features/books/bookApi';
 import { useAppSelector } from '../redux/hooks';
 
 const BookDetails = () => {
@@ -12,7 +12,7 @@ const BookDetails = () => {
 
     const { id } = useParams();
     const navigate = useNavigate();
-    const { data: book } = useGetSingleBookQuery(id!);
+    const { data: book } = useGetBookQuery(id!);
     const { user } = useAppSelector((state) => state.user);
     const verifiedUser = user?.email && book?.addedBy === user?.email;
     return (

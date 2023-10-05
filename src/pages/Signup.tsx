@@ -1,4 +1,3 @@
-import React from 'react';
 import { SubmitHandler, useForm } from "react-hook-form";
 import { Link } from 'react-router-dom';
 import { createUser } from '../redux/features/user/userSlice';

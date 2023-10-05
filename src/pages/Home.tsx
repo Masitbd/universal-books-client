@@ -1,4 +1,3 @@
-import React from 'react';
 import BookList from '../components/ui/BookList';
 import Header from './Header';
 

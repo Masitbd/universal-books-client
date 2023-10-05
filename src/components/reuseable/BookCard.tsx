@@ -1,4 +1,3 @@
-import React from 'react';
 import toast from 'react-hot-toast';
 import { HiOutlineClipboardList } from "react-icons/hi";
 import { AiFillHeart, AiOutlineHeart } from 'react-icons/ai';
@@ -59,7 +58,7 @@ const BookCard = ({book}:{book:IBook}) => {
     );
   
     const verifiedUser = user?.email
-    const publisher = user?.email && book?.addedBy === user?.email
+    //const publisher = user?.email && book?.addedBy === user?.email
     return (
     <div className="card w-80 bg-base-200 shadow-xl hover:-translate-y-2 transition-transform">
    <figure>

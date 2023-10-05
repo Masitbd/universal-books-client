@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import  { useState } from 'react';
 import { FaDeleteLeft, FaPencil } from 'react-icons/fa6';
 import { useNavigate, useParams } from 'react-router-dom';
 import DeleteModal from '../components/ui/DeleteModal';

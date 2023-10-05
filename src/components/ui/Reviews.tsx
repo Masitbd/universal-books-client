@@ -20,7 +20,7 @@ const Reviews= ({id}:ReviewsProp) => {
         register,
         handleSubmit,
         formState: { errors },
-        reset,
+        
       } = useForm<ReviewFormInputs>();
 
 const {user} = useAppSelector(state => state.user)

@@ -35,7 +35,7 @@ const AllBooks = () => {
    <div className="page_main">
       <h2 className="section_title">All Books</h2>
       <div className="container mx-auto my-5 text-center flex flex-col items-center justify-center md:justify-between lg:flex-row">
-        <div className="flex gap-3 justify-center items-center">
+        <div className="flex gap-3 ml-5 justify-center items-center">
           <input
             type="text"
             placeholder="Search you book....."
@@ -66,7 +66,7 @@ const AllBooks = () => {
         </div>
         <button
           onClick={() => navigate("/add-book")}
-          className="btn btn-primary btn-wide mt-4 mb-6"
+          className="btn btn-primary btn-wide mt-4 mb-6 mr-10"
         >
           Add New
         </button>

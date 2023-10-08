@@ -1,3 +1,3 @@
 ## Universal Books Service
 
-# live link: https://universal-books-service.netlify.app/
+# live link: https://universal-book-service.netlify.app/

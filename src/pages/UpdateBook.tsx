@@ -28,7 +28,7 @@ export default function UpdateBook() {
 
     setTimeout(() => {
       navigate("/all-books");
-    }, 1500);
+    }, 5000);
   };
 
   useEffect(() => {

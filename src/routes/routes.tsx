@@ -13,64 +13,64 @@ import UpdateBook from "../pages/UpdateBook";
 import PrivateRoute from "./PrivateRoute";
 
 const routes = createBrowserRouter([
-    {
-        path: '/',
-        element: <App />,
+  {
+    path: "/",
+    element: <App />,
 
-        children: [
-        {
-            index: true,
-           // element: <BookList />,
-           element: <Home />,
-        },
-     {
-        path: '/books',
-        element: <Books/>
-     },
-    
-     {
-      path: '/all-books',
-      element: <AllBooks/>
-   },
-   {
-    path: '/book-details/:id',
-    element: <BookDetails/>
- },
- 
-   {
-    path: "/add-book",
-    element: (
-      <PrivateRoute>
-        <AddBook />
-      </PrivateRoute>
-    ),
-  },
-  {
-    path: "/reading-list/:email",
-    element: (
-      <PrivateRoute>
-        <ReadlingList />
-      </PrivateRoute>
-    ),
-  },
-  {
-    path: "/update-book/:id",
-    element: <UpdateBook />,
-  },
-    ]
-    },
-    {
-        path: '/login',
-        element: <Login />,
+    children: [
+      {
+        index: true,
+        // element: <BookList />,
+        element: <Home />,
       },
       {
-        path: '/signup',
-        element: <Signup />,
+        path: "/books",
+        element: <Books />,
+      },
+
+      {
+        path: "/",
+        element: <AllBooks />,
       },
       {
-        path: '*',
-        element: <NotFound />,
+        path: "/book-details/:id",
+        element: <BookDetails />,
       },
-])
 
-export default routes
+      {
+        path: "/add-book",
+        element: (
+          <PrivateRoute>
+            <AddBook />
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/reading-list/:email",
+        element: (
+          <PrivateRoute>
+            <ReadlingList />
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/update-book/:id",
+        element: <UpdateBook />,
+      },
+    ],
+  },
+  {
+    path: "/login",
+    element: <Login />,
+  },
+  {
+    path: "/signup",
+    element: <Signup />,
+  },
+  {
+    path: "*",
+    element: <NotFound />,
+  },
+]);
+
+export default routes;

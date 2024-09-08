@@ -1,4 +1,5 @@
 version: '3.8'
+
 services:
   nextjs:
     build: .
@@ -9,4 +10,11 @@ services:
       - /app/node_modules
     environment:
       NODE_ENV: development
+      HOST: 0.0.0.0
     #command: npm run dev
+    networks:
+      - universal-books  # Attach the service to the custom network
+
+networks:
+  universal-books:
+    external: true  

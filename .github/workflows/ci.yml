@@ -47,8 +47,7 @@ jobs:
       - name: To View Docker image
         run: docker images
 
-      - name: Tag Docker image
-        run: docker tag universal-books-client:latest ${{ secrets.DOCKER_HUB_USERNAME }}/universal-books-client:latest
+      - name: Tag Docker universal-books-client_nextjs:latest ${{ secrets.DOCKER_HUB_USERNAME }}/universal-books-client:latest
 
       - name: Push Docker image
         run: docker push ${{ secrets.DOCKER_HUB_USERNAME }}/universal-books-client:latest

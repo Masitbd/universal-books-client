@@ -44,7 +44,7 @@ jobs:
           PORT: 4002
           DEV_DATABASE_URL: ${{ secrets.DEV_DATABASE_URL }}
 
-      - name: To View Docker image
+      - name: To View Docker images
         run: docker images
 
       - name: Tag Docker universal-books-client_nextjs:latest ${{ secrets.DOCKER_HUB_USERNAME }}/universal-books-client:latest

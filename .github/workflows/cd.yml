@@ -11,24 +11,32 @@ jobs:
     runs-on: self-hosted
 
     steps:
-      # install docker in the aws machine if it is not available
+      # Install Docker in the AWS machine if it is not available
       - name: Install Docker (if not available)
         run: |
           sudo apt-get update
           sudo apt-get install -y docker.io
 
+      # Log in to Docker Hub
       - name: Log in to Docker Hub
         uses: docker/login-action@v2
         with:
           username: ${{ secrets.DOCKER_HUB_USERNAME }}
           password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
 
+      # Pull Docker image from Docker Hub
       - name: Pull Docker image from Docker Hub
         run: |
           docker pull sarker24/universal-books-client:latest || (echo "Failed to pull Docker image." && exit 1)
 
-      - name: Delete My Old Docker container
+      # Delete the old Docker container
+      - name: Delete old Docker container
         run: sudo docker rm -f universal-books-client || true
 
+      # Delete old and unused Docker images
+      - name: Delete old and unused Docker images
+        run: sudo docker image prune -f
+
+      # Run the Docker container
       - name: Run Docker Container
-        run: sudo docker run -d -p 3000:3000 --name universal-books-client sarker24/universal-books-client
+        run: sudo docker run -d -p 3000:3000 --name universal-books-client sarker24/universal-books-client:latest

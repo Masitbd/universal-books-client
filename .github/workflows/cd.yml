@@ -27,7 +27,7 @@ jobs:
         run: |
           docker pull sarker24/universal-books-client:latest || (echo "Failed to pull Docker image." && exit 1)
 
-      - name: Delete Old Docker container
+      - name: Delete My Old Docker container
         run: sudo docker rm -f universal-books-client || true
 
       - name: Run Docker Container

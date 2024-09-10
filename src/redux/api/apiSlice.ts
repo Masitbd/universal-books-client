@@ -5,7 +5,8 @@ export const api = createApi({
   reducerPath: "api",
   baseQuery: fetchBaseQuery({
     //baseUrl: "http://universal-books-server-app-1:4002",
-    baseUrl: "http://localhost:4002",
+    baseUrl: "http://3.124.189.56:4002",
+    //baseUrl: "http://localhost:4002",
   }),
   tagTypes: ["Books", "Book", "Reviews", "Wishlist", "Booklist"],
   endpoints: () => ({}),

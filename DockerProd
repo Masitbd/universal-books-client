@@ -1,0 +1,28 @@
+# Stage 1: Build Stage
+FROM node:21-alpine AS builder
+
+WORKDIR /app
+
+# Copy only package.json and package-lock.json first (to cache the layer)
+COPY package*.json ./
+
+# Install production dependencies
+RUN npm install --only=production
+
+# Copy all other files
+COPY . .
+
+# Optionally, build the application (uncomment if you have a build step)
+# RUN npm run build
+
+# Stage 2: Production Image
+FROM node:21-alpine
+
+WORKDIR /app
+
+# Copy the built files and dependencies from the builder stage
+COPY --from=builder /app /app
+
+# Expose port and run the application
+EXPOSE 3000
+CMD ["npm", "run", "dev"]

@@ -1,21 +1,24 @@
-import { useDispatch } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
-import BookCard from '../components/reuseable/BookCard';
-import { useGetAllBooksQuery } from '../redux/features/books/bookApi';
-import { clearFilter, filter, search } from '../redux/features/search/searchApi';
-import { useAppSelector } from '../redux/hooks';
-import { IBook } from '../types/interface';
-
+import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import BookCard from "../components/reuseable/BookCard";
+import { useGetAllBooksQuery } from "../redux/features/books/bookApi";
+import {
+  clearFilter,
+  filter,
+  search,
+} from "../redux/features/search/searchApi";
+import { useAppSelector } from "../redux/hooks";
+import { IBook } from "../types/interface";
 
 const AllBooks = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const {data} = useGetAllBooksQuery(undefined)
-  const {keyword, filterOptions} = useAppSelector(state => state.saearch)
+  const { data } = useGetAllBooksQuery(undefined);
+  const { keyword, filterOptions } = useAppSelector((state) => state.saearch);
 
- const books = data?.data
-   
- let bookContent: IBook[] = books;
+  const books = data?.data;
+
+  let bookContent: IBook[] = books;
   bookContent = books
     ?.filter((book: IBook) => {
       if (keyword) {
@@ -30,10 +33,9 @@ const AllBooks = () => {
       return book;
     });
 
-
-    return (
-   <div className="page_main">
-      <h2 className="section_title">All Books</h2>
+  return (
+    <div className="page_main">
+      <h2 className="section_title">All Books for my testing purpose</h2>
       <div className="container mx-auto my-5 text-center flex flex-col items-center justify-center md:justify-between lg:flex-row">
         <div className="flex gap-3 ml-5 justify-center items-center">
           <input
@@ -77,7 +79,7 @@ const AllBooks = () => {
         ))}
       </div>
     </div>
-    );
+  );
 };
 
 export default AllBooks;

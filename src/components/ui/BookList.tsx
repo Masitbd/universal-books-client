@@ -11,7 +11,7 @@ const BookList = () => {
   if (isLoading) return <Loading />;
   return (
     <div className="section mt-5">
-      <h2 className="section_title ">Recent Books</h2>
+      <h2 className="section_title ">Recent Books for testing</h2>
       <div className="flex flex-wrap gap-5 items-center justify-center">
         {data?.data?.slice(0, 10)?.map((book: IBook) => (
           <BookCard book={book} />
